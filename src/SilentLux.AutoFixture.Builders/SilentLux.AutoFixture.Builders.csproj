@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>SilentLux</Authors>
+    <Description>Base class for creating AutoFixture compatible instance builders</Description>
+    <Copyright>SilentLux 2019</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="[4.0.0,5.0.0)" />
+  </ItemGroup>
+
+</Project>
