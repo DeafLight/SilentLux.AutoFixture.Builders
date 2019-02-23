@@ -11,7 +11,7 @@ namespace SilentLux.AutoFixture.Builders.Tests
         [Theory]
         [AutoMoqData]
         public void Compose_should_return_a_PostProcessComposer(
-            DummyBuiler sut
+            DummyBuilder sut
         )
         {
             var res = sut.Compose();

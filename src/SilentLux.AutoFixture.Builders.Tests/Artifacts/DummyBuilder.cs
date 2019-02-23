@@ -1,15 +1,19 @@
 ﻿using AutoFixture;
+using System;
 
 namespace SilentLux.AutoFixture.Builders.Tests.Artifacts
 {
-    public class DummyBuiler : Builder<DummyBuiler, object>
+    public class DummyBuilder : Builder<DummyBuilder, object>
     {
         public bool HasNewInstanceBeenCalled { get; private set; }
 
-        public DummyBuiler(IFixture fixture) :
+        public DummyBuilder(IFixture fixture) :
             base(fixture)
         {
         }
+
+        public DummyBuilder WithAction(Action action) =>
+            With(action);
 
         protected override object NewInstance()
         {

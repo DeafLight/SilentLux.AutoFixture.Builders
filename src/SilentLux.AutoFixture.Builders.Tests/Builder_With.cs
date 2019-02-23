@@ -5,16 +5,17 @@ using Xunit;
 
 namespace SilentLux.AutoFixture.Builders.Tests
 {
-    public class Builder_Build
+    public class Builder_With
     {
         [Theory]
         [AutoMoqData]
-        public void Build_should_return_an_object(DummyBuilder sut)
+        public void With_should_call_the_action(DummyBuilder sut)
         {
-            var res = sut.Build();
+            var hasBeenCalled = false;
 
-            res.GetType().Should().Be<object>();
-            sut.HasNewInstanceBeenCalled.Should().BeTrue();
+            sut.WithAction(() => hasBeenCalled = true);
+
+            hasBeenCalled.Should().BeTrue();
         }
     }
 }

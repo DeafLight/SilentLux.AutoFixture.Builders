@@ -1,5 +1,6 @@
 ﻿using AutoFixture;
 using AutoFixture.Dsl;
+using System;
 
 namespace SilentLux.AutoFixture.Builders
 {
@@ -28,6 +29,16 @@ namespace SilentLux.AutoFixture.Builders
         public IPostprocessComposer<TAnyType> Compose()
         {
             return Fixture.Build<TAnyType>().FromFactory(NewInstance);
+        }
+
+        protected TBuilder With(Action action)
+        {
+            if (action == null)
+                throw new ArgumentNullException(nameof(action));
+
+            action();
+
+            return (TBuilder)this;
         }
 
         protected abstract TAnyType NewInstance();
